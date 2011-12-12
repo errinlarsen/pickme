@@ -2,7 +2,7 @@ Given /^I am on the landing page$/ do
   visit "/"
 end
 
-Then /^my browser should see appropriate meta tags$/ do
+Then /^the appropriate meta tags should be present$/ do
   within :xpath, ".//head" do
     page.must_have_selector :xpath, ".//meta[@name='description']"
     page.must_have_selector :xpath, ".//meta[@name='author']"
@@ -12,7 +12,7 @@ end
 Then /^I should see a standard layout$/ do
   steps %Q{
     Then I should see a page title of "Pick me!"
-    And I should see the title bar
+    And the css for a title bar should be present
     And I should see the brand logo "Pick me!"
   }
 end
@@ -23,7 +23,7 @@ Then /^I should see a page title of "([^"]*)"$/ do |title|
   end
 end
 
-Then /^I should see the title bar$/ do
+Then /^the css for a title bar should be present$/ do
   page.must_have_css ".topbar .fill .container"
 end
 

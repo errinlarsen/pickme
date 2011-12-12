@@ -5,6 +5,6 @@ Feature: Viewing the landing page
 
   Scenario: View index page
     Given I am on the landing page
-    Then my browser should see appropriate meta tags
+    Then the appropriate meta tags should be present
     And I should see a standard layout
-    And I should see a picker card
+    And I should see a picker card named "Foo"
