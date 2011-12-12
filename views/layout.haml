@@ -4,6 +4,41 @@
     %title Pick me!
     %meta{ :name => "description", :content => "Picking a starting player" }
     %meta{ :name => "Errin Larsen", :name => "author" }
+    %link(rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css")
+    :css
+      body {
+        /* 40px to make the container go all the way
+         * to the bottom of the topbar
+         * - add an additional 10px for flash message spacing
+         */
+        padding-top: 50px;
+      }
+
+      /* Special grid styles
+      -------------------------------------------------- */
+      .show-grid {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .show-grid [class*="span"] {
+        background: #eee;
+        text-align: center;
+        -webkit-border-radius: 3px;
+           -moz-border-radius: 3px;
+                border-radius: 3px;
+        min-height: 30px;
+        line-height: 30px;
+      }
+      .show-grid:hover [class*="span"] {
+        background: #ddd;
+      }
+      .show-grid .show-grid {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .show-grid .show-grid [class*="span"] {
+        background-color: #ccc;
+      }
 %body
   .topbar
     .fill
