@@ -1,10 +1,10 @@
 require "minitest/autorun"
 require_relative "../spec_helper_lite"
-require_relative "../../models/picker"
+require_relative "../../models/card"
 
-describe Picker do
+describe Card do
   before do
-    @it = Picker.new
+    @it = Card.new
   end
 
   it "should start with blank attributes" do
@@ -23,24 +23,24 @@ describe Picker do
   end
 
   it "should support setting attributes in the initializer" do
-    it = Picker.new(:name => "Foo", :description => "Foo is Bar")
+    it = Card.new(:name => "Foo", :description => "Foo is Bar")
     it.name.must_equal "Foo"
     it.description.must_equal "Foo is Bar"
   end
 
-  describe "#insert" do
+  describe "#include" do
     before do
-      @deck = MiniTest::Mock.new
-      @it.deck = @deck
+      @game = MiniTest::Mock.new
+      @it.game = @game
     end
 
     after do
-      @deck.verify
+      @game.verify
     end
 
     it "should add the picker to the deck" do
-      @deck.expect :add_picker, nil, [@it]
-      @it.insert
+      @game.expect :add_card, nil, [@it]
+      @it.include
     end
   end
 end
