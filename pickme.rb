@@ -11,5 +11,6 @@ configure do
 end
 
 get "/" do
-  haml :index, :locals => { :deck => deck }
+  card = deck.shift
+  haml :index, :locals => { :card => card }
 end
