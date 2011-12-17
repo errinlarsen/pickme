@@ -4,11 +4,8 @@ require "sinatra"
 
 require_relative "./models/picker"
 
-foo = Picker.new(:name => "Foo",
-                 :description => "The player who has foo should go first")
-DECK = [foo]
-
 get "/" do
-  @card = DECK.shift
+  @card = Picker.new(:name => "Foo",
+                 :description => "The player who has foo should go first")
   haml :index
 end
