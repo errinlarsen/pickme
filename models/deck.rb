@@ -12,6 +12,10 @@ class Deck
     picker_maker.call(*args)
   end
 
+  def add_picker(picker)
+    @pickers << picker
+  end
+
 
   private
   def picker_maker 
