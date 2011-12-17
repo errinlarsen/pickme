@@ -30,4 +30,12 @@ describe Deck do
       picker_maker.verify
     end
   end
+
+  describe "#insert" do
+    it "should add the picker to the deck" do
+      picker = OpenStruct.new(:name => "Foo", :description => "Bar")
+      @it.add_picker(picker)
+      @it.pickers.must_include(picker)
+    end
+  end
 end
