@@ -1,5 +1,5 @@
 class Picker
-  attr_accessor :name, :description
+  attr_accessor :deck, :name, :description
 
   def initialize(attrs={})
     attrs.each { |attr, val| send("#{attr}=", val) }
