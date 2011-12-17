@@ -11,5 +11,5 @@ configure do
 end
 
 get "/" do
-  haml :index
+  haml :index, :locals => { :deck => deck }
 end
