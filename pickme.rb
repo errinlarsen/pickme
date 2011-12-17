@@ -9,7 +9,6 @@ foo = Picker.new(:name => "Foo",
 DECK = [foo]
 
 get "/" do
-  puts DECK.inspect
   @card = DECK.shift
   haml :index
 end
