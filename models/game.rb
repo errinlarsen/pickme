@@ -4,9 +4,8 @@ class Game
   attr_reader :deck
   attr_writer :card_maker
 
-  def initialize(deck_type=Array)
-    @deck_type = deck_type
-    @cards = @deck_type.new
+  def initialize(deck=[])
+    @cards = deck
     setup_deck
   end
 
@@ -32,7 +31,7 @@ class Game
   end
 
   def setup_deck
-    @deck = @deck_type.new(@cards).shuffle
+    @deck = @cards.shuffle
   end
 
   def draw_card

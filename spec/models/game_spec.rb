@@ -5,7 +5,7 @@ require_relative "../../models/game"
 
 describe Game do
   before do
-    @it = Game.new
+    @it = Game.new([])
   end
 
   it "should have an empty deck" do
@@ -35,14 +35,15 @@ describe Game do
     before do
       @cards = []
       2.times do
-        foo = OpenStruct.new
+        foo = Object.new
         @cards << foo
         @it.add_card(foo)
       end
     end
 
-    it "should return the first card in the deck" do
-      @it.play.must_equal @cards.first
+    it "should return one of the cards in the deck" do
+      card = @it.play
+      @cards.must_include card
     end
   end
 end

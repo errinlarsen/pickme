@@ -1,7 +1,7 @@
 Given /^the following picker cards exist:$/ do |card_table|
   card_table.hashes.each do |card|
-    @picker = Picker.new(:name => card[:name],
-                         :description => card[:description])
+    @card = Card.new(:name => card[:name],
+                     :description => card[:description])
   end
 end
 
