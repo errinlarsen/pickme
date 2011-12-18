@@ -9,16 +9,26 @@ class Game
   end
 
   def new_card(*args)
-    card_maker.call(*args)
+    return card_maker.call(*args).tap do |new_card|
+      new_card.game = self
+    end
   end
 
   def add_card(card)
     @deck << card
   end
 
+  def play
+    return draw_card
+  end
+
 
   private
   def card_maker 
-    @card_maker ||= Card.public_method(:new)
+    return @card_maker ||= Card.public_method(:new)
+  end
+
+  def draw_card
+    return @deck.first
   end
 end
