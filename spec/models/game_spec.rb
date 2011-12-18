@@ -30,4 +30,19 @@ describe Game do
       card_maker.verify
     end
   end
+
+  describe "#play" do
+    before do
+      @cards = []
+      2.times do
+        foo = OpenStruct.new
+        @cards << foo
+        @it.add_card(foo)
+      end
+    end
+
+    it "should return the first card in the deck" do
+      @it.play.must_equal @cards.first
+    end
+  end
 end
