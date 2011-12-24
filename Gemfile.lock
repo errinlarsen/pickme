@@ -35,7 +35,6 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
-    rr (1.0.4)
     rubyzip (0.9.5)
     selenium-webdriver (2.15.0)
       childprocess (>= 0.2.1)
@@ -59,5 +58,4 @@ DEPENDENCIES
   capybara_minitest_spec
   cucumber
   haml
-  rr
   sinatra
