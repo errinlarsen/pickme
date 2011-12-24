@@ -9,7 +9,7 @@ require_relative "lib/static_cards_creator"
 
 configure do
   deck = PickerDeck.new
-  StaticCardsCreator.new(deck).create
+  StaticCardsCreator.new(deck).add_cards!
 
   set :deck, deck
 end

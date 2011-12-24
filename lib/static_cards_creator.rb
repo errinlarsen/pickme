@@ -3,7 +3,7 @@ class StaticCardsCreator
     @deck = deck
   end
 
-  def create
+  def add_cards!
     # Wouldn't it be cool if we could do this:
     # @deck = PickerDeck.new do
     #   card "Foo", "The player who most recently bathed should go first"
