@@ -1,6 +1,6 @@
-require_relative "card"
+require_relative "picker_card"
 
-class Game
+class PickerDeck
   attr_reader :deck
   attr_writer :card_maker
 
@@ -11,7 +11,7 @@ class Game
 
   def new_card(*args)
     return card_maker.call(*args).tap do |new_card|
-      new_card.game = self
+      new_card.deck = self
     end
   end
 
@@ -19,7 +19,7 @@ class Game
     @cards << card
   end
 
-  def play
+  def draw_a_card
     setup_deck if @deck.empty?
     return draw_card
   end
@@ -27,7 +27,7 @@ class Game
 
   private
   def card_maker 
-    return @card_maker ||= Card.public_method(:new)
+    return @card_maker ||= PickerCard.public_method(:new)
   end
 
   def setup_deck
