@@ -1,11 +1,11 @@
 class PickerCard
-  attr_accessor :game, :name, :description
+  attr_accessor :deck, :name, :description
 
   def initialize(attrs={})
     attrs.each { |attr, val| send("#{attr}=", val) }
   end
 
   def include
-    game.add_card(self)
+    deck.add_card(self)
   end
 end
