@@ -28,7 +28,7 @@ describe PickerCard do
     it.description.must_equal "Foo is Bar"
   end
 
-  describe "#include" do
+  describe "#add_to_deck" do
     before do
       @deck = MiniTest::Mock.new
       @it.deck = @deck
@@ -40,7 +40,7 @@ describe PickerCard do
 
     it "should add the picker to the deck" do
       @deck.expect :add_card, nil, [@it]
-      @it.include
+      @it.add_to_deck
     end
   end
 end
