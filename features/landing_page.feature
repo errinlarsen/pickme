@@ -13,17 +13,15 @@ Feature: Viewing the landing page
     Given I am on the landing page
     Then the appropriate meta tags should be present
     And I should see a standard layout
-    And I should see a picker card named "Foo"
-    And I should see the picker card description:
+    And I should see a picker card named "Foo" with description:
       """
       The player who has foo should go first
       """
 
   Scenario: Pick another card
     Given I am on the landing page
-    When I click on the current card
-    Then I should see a picker card name "Bar"
-    And I should see the picker card description:
+    When I click the picker card so I can play again
+    Then I should see a picker card named "Bar" with description:
       """
       The player who has bar should go first
       """

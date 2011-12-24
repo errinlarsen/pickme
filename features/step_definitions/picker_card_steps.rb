@@ -10,20 +10,30 @@ Given /^the following picker cards exist:$/ do |card_table|
   end
 end
 
-Then /^I should see a picker card named "([^"]*)"$/ do |name|
+Then /^I should see a picker card named "([^"]*)" with description:$/ do |name, description|
   steps %Q[
-    Then the css for a card should be present
-    And I should see a card named "#{name}"
+    Then I should see a card
+    And the card should be a link to play again
+    And the card named "#{name}" has the description "#{description}"
   ]
 end
 
-Then /^the css for a card should be present$/ do
+Then /^I should see a card$/ do
   page.must_have_css ".picker-card"
 end
 
-Then /^I should see a card named "([^"]*)"$/ do |name|
+Then /^the card should be a link to play again$/ do
+  within :css, ".picker-card" do
+    page.must_have_css "a#picker-card"
+  end
+end
+
+Then /^the card named "([^"]*)" has the description "([^"]*)"$/ do |name, description|
   within :css, ".picker-card .name" do
     page.must_have_content name
+  end
+  within :css, ".picker-card .description" do
+    page.must_have_content description
   end
 end
 

@@ -2,6 +2,10 @@ Given /^I am on the landing page$/ do
   visit "/"
 end
 
+When /^I click the picker card so I can play again$/ do
+  click_link "picker-card"
+end
+
 Then /^the appropriate meta tags should be present$/ do
   within :xpath, ".//head" do
     page.must_have_selector :xpath, ".//meta[@name='description']"
@@ -31,8 +35,4 @@ Then /^I should see the brand logo "([^"]*)"$/ do |brand|
   within :css, ".topbar .brand" do
     page.must_have_content "Pick me!"
   end
-end
-
-When /^I click on the current card$/ do
-  # pending
 end
