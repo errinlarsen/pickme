@@ -19,7 +19,7 @@ class Game
     @cards << card
   end
 
-  def play
+  def draw_a_card
     setup_deck if @deck.empty?
     return draw_card
   end
