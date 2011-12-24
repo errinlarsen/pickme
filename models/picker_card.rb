@@ -5,7 +5,7 @@ class PickerCard
     attrs.each { |attr, val| send("#{attr}=", val) }
   end
 
-  def include
+  def add_to_deck
     deck.add_card(self)
   end
 end
