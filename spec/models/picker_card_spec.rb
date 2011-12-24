@@ -30,16 +30,16 @@ describe PickerCard do
 
   describe "#include" do
     before do
-      @game = MiniTest::Mock.new
-      @it.game = @game
+      @deck = MiniTest::Mock.new
+      @it.deck = @deck
     end
 
     after do
-      @game.verify
+      @deck.verify
     end
 
     it "should add the picker to the deck" do
-      @game.expect :add_card, nil, [@it]
+      @deck.expect :add_card, nil, [@it]
       @it.include
     end
   end
