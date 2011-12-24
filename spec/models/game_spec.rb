@@ -34,16 +34,28 @@ describe Game do
   describe "#play" do
     before do
       @cards = []
+      test_deck = []
+      class << test_deck; def shuffle; dup; end; end
+      @it = Game.new(test_deck)
       2.times do
-        foo = Object.new
-        @cards << foo
-        @it.add_card(foo)
+        some_card = Object.new
+        @cards << some_card
+        @it.add_card(some_card)
       end
     end
 
-    it "should return one of the cards in the deck" do
-      card = @it.play
-      @cards.must_include card
+    it "should return the first card in the deck" do
+      @it.play.must_equal @cards.first
+    end
+
+    it "should return the second card in the deck when called twice" do
+      @it.play
+      @it.play.must_equal @cards[1]
+    end
+
+    it "should reset the deck when all cards have been drawn" do
+      @cards.size.times { @it.play }
+      @it.play.must_equal @cards.first
     end
   end
 end
