@@ -1,12 +1,12 @@
 Given /^the following picker cards exist:$/ do |card_table|
-  test_deck = []
-  class << test_deck; def shuffle; dup; end; end
-  Capybara.app.settings.game = Game.new(test_deck)
+  stacked_deck = []
+  class << stacked_deck; def shuffle; dup; end; end
+  Capybara.app.settings.deck = PickerDeck.new(stacked_deck)
   card_table.hashes.each do |card|
-    Capybara.app.settings.game.new_card(
+    Capybara.app.settings.deck.new_card(
       :name => card[:name],
       :description => card[:description]
-    ).include
+    ).add_to_deck
   end
 end
 
