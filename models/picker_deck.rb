@@ -1,6 +1,6 @@
 require_relative "card"
 
-class Game
+class PickerDeck
   attr_reader :deck
   attr_writer :card_maker
 

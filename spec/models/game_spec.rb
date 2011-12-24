@@ -1,7 +1,7 @@
 require "minitest/autorun"
 require "ostruct"
 require_relative "../spec_helper_lite"
-require_relative "../../models/game"
+require_relative "../../models/picker_deck"
 
 describe PickerDeck do
   before do
