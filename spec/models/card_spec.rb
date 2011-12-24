@@ -2,9 +2,9 @@ require "minitest/autorun"
 require_relative "../spec_helper_lite"
 require_relative "../../models/card"
 
-describe Card do
+describe PickerCard do
   before do
-    @it = Card.new
+    @it = PickerCard.new
   end
 
   it "should start with blank attributes" do
@@ -23,7 +23,7 @@ describe Card do
   end
 
   it "should support setting attributes in the initializer" do
-    it = Card.new(:name => "Foo", :description => "Foo is Bar")
+    it = PickerCard.new(:name => "Foo", :description => "Foo is Bar")
     it.name.must_equal "Foo"
     it.description.must_equal "Foo is Bar"
   end
