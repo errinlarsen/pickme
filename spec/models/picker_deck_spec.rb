@@ -22,6 +22,10 @@ describe PickerDeck do
       @it.new_card.must_equal @new_card
     end
 
+    it "should set the new card's deck to itself" do
+      @it.new_card.deck.must_equal @it
+    end
+
     it "should accept an attribute hash on behalf of the card maker" do
       new_card_attrs = { :name => "Foo", :description => "bar" }
 
