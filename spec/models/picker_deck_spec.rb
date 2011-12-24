@@ -37,13 +37,14 @@ describe PickerDeck do
   describe "#draw_a_card" do
     before do
       @cards = []
-      test_deck = []
-      class << test_deck; def shuffle; dup; end; end
-      @it = PickerDeck.new(test_deck)
+      stacked_deck = []
+      class << stacked_deck; def shuffle; dup; end; end
+
+      @it = PickerDeck.new(stacked_deck)
       2.times do
-        some_card = Object.new
-        @cards << some_card
-        @it.add_card(some_card)
+        new_card = Object.new
+        @cards << new_card
+        @it.add_card(new_card)
       end
     end
 
