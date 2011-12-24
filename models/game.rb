@@ -4,8 +4,8 @@ class Game
   attr_reader :deck
   attr_writer :card_maker
 
-  def initialize(deck=[])
-    @cards = deck
+  def initialize(cards=[])
+    @cards = cards
     setup_deck
   end
 
