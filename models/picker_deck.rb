@@ -1,4 +1,4 @@
-require_relative "card"
+require_relative "picker_card"
 
 class PickerDeck
   attr_reader :deck

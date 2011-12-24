@@ -1,6 +1,6 @@
 require "minitest/autorun"
 require_relative "../spec_helper_lite"
-require_relative "../../models/card"
+require_relative "../../models/picker_card"
 
 describe PickerCard do
   before do

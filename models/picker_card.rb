@@ -1,4 +1,4 @@
-class Card
+class PickerCard
   attr_accessor :game, :name, :description
 
   def initialize(attrs={})
