@@ -32,3 +32,7 @@ Then /^I should see the brand logo "([^"]*)"$/ do |brand|
     page.must_have_content "Pick me!"
   end
 end
+
+When /^I click on the current card$/ do
+  # pending
+end

@@ -1,6 +1,5 @@
 .row.show-grid
   .span4.offset1
     .picker-card
-      %h3.name Foo
-      %p.description
-        The first player is the one who has foo
+      %h3.name= @card.name
+      %p.description= @card.description
