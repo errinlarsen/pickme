@@ -27,7 +27,7 @@ class PickerDeck
 
   private
   def card_maker 
-    return @card_maker ||= Card.public_method(:new)
+    return @card_maker ||= PickerCard.public_method(:new)
   end
 
   def setup_deck
