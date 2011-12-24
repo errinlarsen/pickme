@@ -23,7 +23,7 @@ end
 
 Then /^I should see a page title of "([^"]*)"$/ do |title|
   within :xpath, ".//head/title" do
-    page.must_have_content "Pick me!" 
+    page.must_have_content title
   end
 end
 
@@ -33,6 +33,6 @@ end
 
 Then /^I should see the brand logo "([^"]*)"$/ do |brand|
   within :css, ".topbar .brand" do
-    page.must_have_content "Pick me!"
+    page.must_have_content brand
   end
 end
