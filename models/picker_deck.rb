@@ -11,7 +11,7 @@ class PickerDeck
 
   def new_card(*args)
     return card_maker.call(*args).tap do |new_card|
-      new_card.game = self
+      new_card.deck = self
     end
   end
 
