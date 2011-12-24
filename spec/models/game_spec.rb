@@ -3,9 +3,9 @@ require "ostruct"
 require_relative "../spec_helper_lite"
 require_relative "../../models/game"
 
-describe Game do
+describe PickerDeck do
   before do
-    @it = Game.new([])
+    @it = PickerDeck.new([])
   end
 
   it "should have an empty deck" do
@@ -36,7 +36,7 @@ describe Game do
       @cards = []
       test_deck = []
       class << test_deck; def shuffle; dup; end; end
-      @it = Game.new(test_deck)
+      @it = PickerDeck.new(test_deck)
       2.times do
         some_card = Object.new
         @cards << some_card
