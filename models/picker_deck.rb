@@ -9,14 +9,18 @@ class PickerDeck
     setup_deck
   end
 
-  def new_card(*args)
-    return card_maker.call(*args).tap do |new_card|
+  def new_card(*args, &block)
+    return card_maker.call(*args, &block).tap do |new_card|
       new_card.deck = self
     end
   end
 
   def add_card(card)
     @cards << card
+  end
+
+  def add_cards_from_file(path)
+    instance_eval(File.read(path), path)
   end
 
   def draw_a_card
@@ -36,5 +40,11 @@ class PickerDeck
 
   def draw_card
     return @deck.shift
+  end
+
+  # def picker(name=nil, description=nil, &block)
+  def picker(name=nil, description=nil, &block)
+    new_card = new_card(:name => name, :description=>description, &block)
+    new_card.add_to_deck
   end
 end

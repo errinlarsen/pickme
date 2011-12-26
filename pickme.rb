@@ -4,13 +4,10 @@ require "sinatra"
 require "haml"
 
 require_relative "models/picker_deck"
-# temporary solution for the lack of persistance
-require_relative "lib/static_cards_creator"
 
 configure do
   deck = PickerDeck.new
-  StaticCardsCreator.new(deck).add_cards!
-
+  deck.add_cards_from_file("./cards/default_cards.rb")
   set :deck, deck
 end
 

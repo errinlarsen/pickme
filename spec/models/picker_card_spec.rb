@@ -13,13 +13,27 @@ describe PickerCard do
   end
 
   it "should support reading and writing a name" do
-    @it.name = "Foo"
-    @it.name.must_equal "Foo"
+    @it.name = "Some name"
+    @it.name.must_equal "Some name"
+  end
+
+  describe "#name" do
+    it "should change the name attribute when passed a string" do
+      @it.name "Some other name"
+      @it.name.must_equal "Some other name"
+    end
   end
 
   it "should support reading and writing a description" do
-    @it.description = "Bar"
-    @it.description.must_equal "Bar"
+    @it.description = "Some description"
+    @it.description.must_equal "Some description"
+  end
+
+  describe "#description" do
+    it "should change the description attribute when passed a string" do
+      @it.description "Some other description"
+      @it.description.must_equal "Some other description"
+    end
   end
 
   it "should support setting attributes in the initializer" do
