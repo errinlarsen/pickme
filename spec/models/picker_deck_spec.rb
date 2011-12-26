@@ -28,13 +28,13 @@ describe PickerDeck do
     end
 
     it "should accept an attribute hash on behalf of the card maker" do
-      new_card_attrs = { :name => "Foo", :description => "bar" }
+      new_card_attrs = { name: "Foo", description: "bar" }
 
       card_maker = MiniTest::Mock.new
       card_maker.expect(:call, @new_card, [new_card_attrs])
       @it.card_maker = card_maker
 
-      @it.new_card(:name => "Foo", :description => "bar")
+      @it.new_card(name: "Foo", description: "bar")
       card_maker.verify
     end
   end
@@ -52,7 +52,7 @@ describe PickerDeck do
     end
 
     it "should create a card given a name and description in a file" do
-      some_card_attrs = { :name => "Foo", :description => "bar" }
+      some_card_attrs = { name: "Foo", description: "bar" }
       @card_maker.expect(:call, @some_card, [some_card_attrs])
       @it.card_maker = @card_maker
 

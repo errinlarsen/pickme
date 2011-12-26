@@ -5,8 +5,7 @@ Given /^the following picker cards exist:$/ do |card_table|
 
   card_table.hashes.each do |new_card|
     Capybara.app.settings.deck.new_card(
-      :name => new_card[:name],
-      :description => new_card[:description]
+      name: new_card[:name], description: new_card[:description]
     ).add_to_deck
   end
 end

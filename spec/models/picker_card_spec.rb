@@ -37,7 +37,7 @@ describe PickerCard do
   end
 
   it "should support setting attributes in the initializer" do
-    it = PickerCard.new(:name => "Foo", :description => "Foo is Bar")
+    it = PickerCard.new(name: "Foo", description: "Foo is Bar")
     it.name.must_equal "Foo"
     it.description.must_equal "Foo is Bar"
   end

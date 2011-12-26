@@ -43,7 +43,7 @@ class PickerDeck
   end
 
   def picker(name=nil, description=nil, &block)
-    new_card = new_card(:name => name, :description=>description, &block)
+    new_card = new_card(name: name, description: description, &block)
     new_card.add_to_deck
   end
 end
