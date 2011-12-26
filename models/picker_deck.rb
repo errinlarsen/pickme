@@ -42,7 +42,6 @@ class PickerDeck
     return @deck.shift
   end
 
-  # def picker(name=nil, description=nil, &block)
   def picker(name=nil, description=nil, &block)
     new_card = new_card(:name => name, :description=>description, &block)
     new_card.add_to_deck
