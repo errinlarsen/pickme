@@ -1,5 +1,6 @@
 require "minitest/autorun"
 require "ostruct"
+require "tempfile"
 require_relative "../spec_helper_lite"
 require_relative "../../models/picker_deck"
 
@@ -35,6 +36,41 @@ describe PickerDeck do
 
       @it.new_card(:name => "Foo", :description => "bar")
       card_maker.verify
+    end
+  end
+
+  describe "#add_cards_from_file" do
+    before do
+      @some_card = OpenStruct.new
+      @card_maker = MiniTest::Mock.new
+      @tmp = Tempfile.new("Foo")
+    end
+
+    after do
+      @card_maker.verify
+      @tmp.unlink
+    end
+
+    it "should create a card given a name and description in a file" do
+      some_card_attrs = { :name => "Foo", :description => "bar" }
+      @card_maker.expect(:call, @some_card, [some_card_attrs])
+      @it.card_maker = @card_maker
+
+      @tmp.write("picker \"Foo\", \"bar\"")
+      @tmp.close
+
+      @it.add_cards_from_file(@tmp.path)
+    end
+
+    it "should create a card given a name and block in a file" do
+      some_card_attrs = { name: "Foo", description: nil }
+      @card_maker.expect(:call, @some_card, [some_card_attrs])
+      @it.card_maker = @card_maker
+
+      @tmp.write("picker \"Foo\" do\n  description \"bar\"\nend")
+      @tmp.close
+
+      @it.add_cards_from_file(@tmp.path)
     end
   end
 
