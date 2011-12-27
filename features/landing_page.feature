@@ -1,4 +1,4 @@
-Feature: Viewing the landing page
+Feature: The landing page
   As a gamer about to play a game
   In order to pick a player to go first in a game
   I want to view a method to pick a starting player
@@ -17,6 +17,7 @@ Feature: Viewing the landing page
       """
       The player who has foo should go first
       """
+    And the card should be a link to play again
 
   Scenario: Pick another card
     Given I am on the landing page
@@ -25,3 +26,4 @@ Feature: Viewing the landing page
       """
       The player who has bar should go first
       """
+    And the card should be a link to play again
