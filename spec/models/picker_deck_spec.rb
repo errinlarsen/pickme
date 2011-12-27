@@ -13,8 +13,8 @@ describe PickerDeck do
     @it.deck.must_be_empty
   end
 
-  it "should support reading the cards list" do
-    @it.cards.wont_be_nil
+  it "should support iterating over the cards list" do
+    @it.cards.must_respond_to :each
   end
 
   describe "#new_card" do
