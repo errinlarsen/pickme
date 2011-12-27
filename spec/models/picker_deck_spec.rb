@@ -13,6 +13,10 @@ describe PickerDeck do
     @it.deck.must_be_empty
   end
 
+  it "should support reading the cards list" do
+    @it.cards.wont_be_nil
+  end
+
   describe "#new_card" do
     before do
       @new_card = OpenStruct.new
