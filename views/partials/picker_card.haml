@@ -1,6 +1,4 @@
-.row.show-grid
-  .span4.offset1
-    .picker-card{ id: @card.name.downcase.gsub(/\s/, '-') }
-      %a#picker-card(href='/' style="text-decoration: none")
-        %h3.name= @card.name
-        %p.description(style="color: #404040")= @card.description
+.picker-card{ id: @card.name.downcase.gsub(/\s/, '-') }
+  %a#picker-card(href='/' style="text-decoration: none")
+    %h3.name= @card.name
+    %p.description(style="color: #404040")= @card.description
