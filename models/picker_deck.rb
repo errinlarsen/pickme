@@ -1,7 +1,7 @@
 require_relative "picker_card"
 
 class PickerDeck
-  attr_reader :deck
+  attr_reader :deck, :cards
   attr_writer :card_maker
 
   def initialize(cards=[])
