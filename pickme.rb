@@ -15,3 +15,8 @@ get "/" do
   @card = settings.deck.draw_a_card
   haml :index
 end
+
+get "/list" do
+  @cards = settings.deck.cards
+  haml :list
+end
