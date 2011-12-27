@@ -13,7 +13,6 @@ end
 Then /^I should see a picker card named "([^"]*)" with description:$/ do |name, description|
   steps %Q[
     Then I should see a card
-    And the card should be a link to play again
     And the card named "#{name}" has the description "#{description}"
   ]
 end
@@ -29,10 +28,16 @@ Then /^the card should be a link to play again$/ do
 end
 
 Then /^the card named "([^"]*)" has the description "([^"]*)"$/ do |name, description|
-  within :css, ".picker-card .name" do
+  within :css, ".picker-card##{name.downcase.gsub(/\s/, '-')} .name" do
     page.must_have_content name
   end
-  within :css, ".picker-card .description" do
+  within :css, ".picker-card##{name.downcase.gsub(/\s/, '-')} .description" do
     page.must_have_content description
+  end
+end
+
+Then /^I should see a list of picker cards$/ do
+  within :css, "ul.picker-cards-list" do
+    page.must_have_css "li.picker-card"
   end
 end

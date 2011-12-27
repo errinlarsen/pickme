@@ -6,6 +6,10 @@ When /^I click the picker card so I can play again$/ do
   click_link "picker-card"
 end
 
+When /^I click "([^"]*)"$/ do |link|
+  click_link link
+end
+
 Then /^the appropriate meta tags should be present$/ do
   within :xpath, ".//head" do
     page.must_have_selector :xpath, ".//meta[@name='description']"
