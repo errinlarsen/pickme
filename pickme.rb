@@ -1,9 +1,9 @@
 require "rubygems"
-require "bundler/setup"
 require "sinatra"
 require "haml"
 
 require_relative "models/picker_deck"
+
 
 configure do
   deck = PickerDeck.new
